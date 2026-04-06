@@ -84,6 +84,8 @@ gcc main.c -o message_tree
 Selection: 5
 
  ~CURRENT CHAT FEED
+
+ 
 |-- [0] Main Topic: Project Discussion
     |-- [1] I think we should use C for the project.
         |-- [3] Agreed, it's great for memory management!
