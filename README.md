@@ -2,9 +2,10 @@ Message Thread Tree CRUD
 A real-time chat thread simulation implemented in C using a General Tree (Left-Child Right-Sibling) data structure. This application demonstrates hierarchical data management, recursive algorithms, and dynamic memory handling.
 
 @ Team Members
-1.
 
-2.
+1.N.Mithra Srikhar
+
+2.E. Vineeth Reddy
 
 #Problem Statement
 In modern communication platforms (like Reddit, Slack, or Discord), messages are organized in threads. A single message can have multiple replies, and those replies can have their own replies.
