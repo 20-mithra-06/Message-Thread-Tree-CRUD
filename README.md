@@ -87,6 +87,9 @@ Selection: 5
 
  
 |-- [0] Main Topic: Project Discussion
-    |-- [1] I think we should use C for the project.
-        |-- [3] Agreed, it's great for memory management!
-    |-- [2] What about the documentation?
+
+   |-- [1] I think we should use C for the project.
+       
+   |-- [3] Agreed, it's great for memory management!
+ 
+ |-- [2] What about the documentation?
