@@ -1,104 +1,304 @@
-Message Thread Tree CRUD
 
-A real-time chat thread simulation implemented in C using a General Tree (Left-Child Right-Sibling) data structure. This application demonstrates hierarchical data management, recursive algorithms, and dynamic memory handling.
-
-@ Team Members
-
-1.N.Mithra Srikhar
-
-2.E. Vineeth Reddy
-
-#Problem Statement
-
-In modern communication platforms (like Reddit, Slack, or Discord), messages are organized in threads. A single message can have multiple replies, and those replies can have their own replies.
-
-The Challenge: Efficiently represent a hierarchical, multi-level conversation where each node can have an infinite number of children (replies) without using a fixed-size array or wasting memory.
-
-🛠 Data Structure Used
-
-This project utilizes a General Tree implemented via the Left-Child, Right-Sibling (LCRS) representation.
-
-Structure Definition:
-
-id: A unique integer to identify the message.
+🚀 Message Thread Tree CRUD System
 
 
-text: A character array (string) containing the message content.
+A High-Performance Hierarchical Chat Simulation Engine in C
+
+📌 Overview
 
 
-*firstChild: Pointer to the first reply (child) of the message.
+The Message Thread Tree CRUD System is a high-performance, console-based chat simulation engine designed using C programming language and the Left-Child Right-Sibling (LCRS) Tree Data Structure.
 
 
-*nextSibling: Pointer to the next message (sibling) at the same indentation level.
+It replicates the core architecture of modern messaging platforms such as:
 
 
-#Algorithm Explanation
+Reddit (threaded comments)
 
-1. Create (Add Node)
+Discord (nested replies)
+
+Slack (conversation chains)
+
+
+This system demonstrates how scalable hierarchical communication models can be implemented using efficient memory-managed tree structures.
+
+
+🎯 Key Highlights
+
+⚡ Dynamic hierarchical thread management
+
+🌳 General Tree using LCRS representation
+
+🔁 Recursive DFS-based traversal system
+
+
+🧠 Fully dynamic memory allocation (no fixed limits)
+
+
+🧩 Modular CRUD architecture
+
+💬 Real-world chat thread simulation model
+
+
+👨‍💻 Developers
+
+N. Mithra Srikhar
+
+E. Vineeth Reddy
+
+🧠 System Architecture
+
+
+🔷 Data Structure Model (LCRS Tree)
+
+
+Each message node is represented as:
+
+
+typedef struct MessageNode {
+
+int id;
+    
+ char text[256];
+    
+ struct MessageNode *firstChild;
+ 
    
-The program searches for the parentId using a recursive depth-first search.
+ struct MessageNode *nextSibling;
+ 
+}
+MessageNode;
 
-If the parent has no firstChild, the new node is assigned there.
+📌 Design Logic
 
-If a firstChild exists, the program traverses the nextSibling pointers until it reaches the end of the list and appends the new node.
 
-2. Read (Search & Display)
-   
-Search: A recursive function visits every node until the ID matches.
+firstChild → First reply in a thread
 
-Display: Uses a recursive Pre-order traversal. A depth variable is passed through each call to print leading spaces, creating a visual "tree" effect.
+nextSibling → Next message at same hierarchy level
 
-3. Update
-   
-Locates the node by ID and uses strncpy to safely overwrite the existing message buffer.
+Enables infinite branching without arrays
 
-4. Delete
-   
-When a node is deleted, the algorithm ensures no memory leaks occur by recursively calling freeTree on the firstChild (deleting the entire sub-thread) before freeing the target node itself.
+⚙️ Core Features
 
-#Compilation Instructions
 
-To run this project locally, ensure you have a C compiler (like GCC) installed.
+🔹 1. Create (Insert Message / Reply)
 
-1.Clone the repository:
+Searches parent node using DFS
+
+Inserts node as:
+
+First child (if no replies exist)
+
+Else appended as sibling
+
+🔹 2. Read (Search + Display)
+
+🔍 Search
+
+Recursive DFS traversal
+
+Returns node by unique ID
+
+📊 Display Engine
+
+Pre-order traversal
+
+Indentation-based visualization
+
+🔹 3. Update (Modify Message)
+
+Locates node via ID
+
+Safely updates message content
+
+🔹 4. Delete (Subtree Removal)
+
+Deletes selected node
+
+Recursively removes all child replies
+
+Ensures memory cleanup using DFS
+
+🔄 Algorithm Workflow
+
+User Input → Operation Selection → Tree Traversal (DFS)
+
+→ Node Processing → Memory Update → Output Rendering
+
+🖥 System Output Visualization
+
+ROOT THREAD [0]
+
+│
+
+├── Message [1]: System Design Discussion
+
+│     └── Reply [3]: Use tree structure for scalability
+
+│
+
+└── Message [2]: Documentation Plan
+
+🛠 Technology Stack
+
+Component   	Technology
+
+Language	C
+
+
+Data Structure	General Tree (LCRS)
+
+Algorithm	DFS (Recursive Traversal)
+
+Memory Model	Dynamic Allocation (malloc/free)
+
+📂 Project Structure
+
+message-thread-tree/
+
+
+│
+
+
+├── main.c 
+                 # Core implementation (CRUD engine)
+
+├── README.md  
+                 # Project documentation
+
+
+├── docs/ 
+                 # Architecture diagrams (optional)
+
+
+└── screenshots/  
+                  # Output visuals
+                  
+
+🚀 Getting Started
+
+🔧 Requirements
+
+GCC Compiler or any C compiler
+
+Linux / Windows / macOS
+
+⚡ Build & Run
+
+# Clone repository
 
 git clone https://github.com/yourusername/message-thread-tree.git
+
+
+# Navigate project directory
+
 cd message-thread-tree
 
-2.Compile the code:
+
+# Compile source code
 
 gcc main.c -o message_tree
 
-3.Run the application:
+
+# Execute program
 
 ./message_tree
 
-#Sample Output
+📊 Performance Analysis
 
- MESSAGE THREAD TREE (CRUD)
+Operation	  Complexity
 
- 
-1. Add Message/Reply (Create)
-2. Delete Message (Delete)
-...
-Selection: 5
+Insert	O(n)
 
- ~CURRENT CHAT FEED
+Search	O(n)
 
- 
-|-- [0] Main Topic: Project Discussion
+Delete	O(n)
 
-   |-- [1] I think we should use C for the project.
-       
-   |-- [3] Agreed, it's great for memory management!
- 
- |-- [2] What about the documentation?
- ~ OUTPUT
+Display	O(n)
 
- <img width="304" height="179" alt="Screenshot 2026-04-17 123202" src="https://github.com/user-attachments/assets/75a8755a-9cf1-4593-91e5-60d106891bdd" />
-<img width="314" height="228" alt="Screenshot 2026-04-17 123651" src="https://github.com/user-attachments/assets/64d88e56-56f5-48bc-8d60-5c9f21fd5b88" />
-<img width="324" height="198" alt="Screenshot 2026-04-17 123710" src="https://github.com/user-attachments/assets/88c8e255-8d2c-4772-b414-1d0cf787287b" />
-<img width="490" height="254" alt="Screenshot 2026-04-17 123738" src="https://github.com/user-attachments/assets/7501139a-a633-4447-a034-41b1ae2368d4" />
-<img width="333" height="229" alt="Screenshot 2026-04-17 123757" src="https://github.com/user-attachments/assets/c7d3a992-d2ba-4c23-8344-fa806f96ef0b" />
-<img width="437" height="251" alt="Screenshot 2026-04-17 123816" src="https://github.com/user-attachments/assets/ccee4b81-e6c3-4601-833c-70efb0b09dee" />
+🔐 Advantages
 
+
+✔ Scalable thread-based architecture
+
+✔ Efficient memory utilization (no static arrays)
+
+✔ Real-world chat model simulation
+
+✔ Fully recursive structure
+
+✔ Easy extensibility
+
+
+⚠️ Limitations
+
+Console-based interface (no GUI)
+
+No persistent database storage
+
+Single-session runtime system
+
+🔮 Future Scope
+
+🌐 Real-time networking support (multi-user chat system)
+
+💾 Database integration (MySQL / MongoDB)
+
+🖥 Web-based UI (React / HTML5)
+
+🔐 Encryption layer (secure messaging)
+
+📱 Mobile application version
+
+📚 Learning Outcomes
+
+
+This project strengthens understanding of:
+
+
+Tree data structures (LCRS model)
+
+Recursive algorithm design
+
+Memory management in C
+
+System-level programming concepts
+
+Real-world chat system architecture  
+
+DEMO OUTPUT: 
+
+
+<img width="314" height="228" alt="Screenshot 2026-04-17 123651" src="https://github.com/user-attachments/assets/651a5477-a03f-430e-9c79-f5ea0ef81fad" />
+
+
+
+
+<img width="324" height="198" alt="Screenshot 2026-04-17 123710" src="https://github.com/user-attachments/assets/62a62b57-270a-417a-81ae-4ccdb0c285a2" />
+
+
+
+<img width="490" height="254" alt="Screenshot 2026-04-17 123738" src="https://github.com/user-attachments/assets/faadc5da-4cf5-4404-8ad0-851204f948ab" />
+
+
+
+
+<img width="333" height="229" alt="Screenshot 2026-04-17 123757" src="https://github.com/user-attachments/assets/36dadd61-1cc0-4328-b3ff-2cad94c87366" />
+
+
+<img width="437" height="251" alt="Screenshot 2026-04-17 123816" src="https://github.com/user-attachments/assets/63099b23-bcf9-4a33-9972-c5b27cb7ed09" />
+
+
+
+
+   
+
+🏁 Conclusion
+
+
+The Message Thread Tree CRUD System successfully demonstrates how hierarchical chat systems can be implemented efficiently using advanced tree data structures. It serves as a strong foundation for building scalable messaging platforms and distributed communication systems.
+
+⭐ Repository Status
+
+
+🔥 Educational Project | System Design Focus | Data Structures Implementation
