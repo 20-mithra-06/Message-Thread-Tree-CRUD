@@ -93,3 +93,12 @@ Selection: 5
    |-- [3] Agreed, it's great for memory management!
  
  |-- [2] What about the documentation?
+ ~ OUTPUT
+
+ <img width="304" height="179" alt="Screenshot 2026-04-17 123202" src="https://github.com/user-attachments/assets/75a8755a-9cf1-4593-91e5-60d106891bdd" />
+<img width="314" height="228" alt="Screenshot 2026-04-17 123651" src="https://github.com/user-attachments/assets/64d88e56-56f5-48bc-8d60-5c9f21fd5b88" />
+<img width="324" height="198" alt="Screenshot 2026-04-17 123710" src="https://github.com/user-attachments/assets/88c8e255-8d2c-4772-b414-1d0cf787287b" />
+<img width="490" height="254" alt="Screenshot 2026-04-17 123738" src="https://github.com/user-attachments/assets/7501139a-a633-4447-a034-41b1ae2368d4" />
+<img width="333" height="229" alt="Screenshot 2026-04-17 123757" src="https://github.com/user-attachments/assets/c7d3a992-d2ba-4c23-8344-fa806f96ef0b" />
+<img width="437" height="251" alt="Screenshot 2026-04-17 123816" src="https://github.com/user-attachments/assets/ccee4b81-e6c3-4601-833c-70efb0b09dee" />
+
